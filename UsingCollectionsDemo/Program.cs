@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace UsageCollections
 {
@@ -21,11 +22,26 @@ namespace UsageCollections
                 Console.Write("Numéro d’ordre (NO) : ");
                 int no = int.Parse(Console.ReadLine());
 
-                Console.Write("Prénom : ");
-                string prenom = Console.ReadLine();
+                // Prénom (seulement lettres)
+                string prenom;
+                do
+                {
+                    Console.Write("Prénom : ");
+                    prenom = Console.ReadLine();
+                    if (!Regex.IsMatch(prenom, @"^[A-Za-z]+$"))
+                        Console.WriteLine("Erreur : le prénom doit contenir uniquement des lettres.");
+                } while (!Regex.IsMatch(prenom, @"^[A-Za-z]+$"));
 
-                Console.Write("Nom : ");
-                string nom = Console.ReadLine();
+                // Nom (seulement lettres)
+                string nom;
+                do
+                {
+                    Console.Write("Nom : ");
+                    nom = Console.ReadLine();
+                    if (!Regex.IsMatch(nom, @"^[A-Za-z]+$"))
+                        Console.WriteLine("Erreur : le nom doit contenir uniquement des lettres.");
+                } while (!Regex.IsMatch(nom, @"^[A-Za-z]+$"));
+
 
                 Console.Write("Note CC : ");
                 double noteCC = double.Parse(Console.ReadLine());
